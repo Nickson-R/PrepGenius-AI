@@ -3,3 +3,4 @@ __pycache__/
 placement_report.txt
 *.pdf
 *.txt
+!requirements.txt
