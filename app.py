@@ -1,7 +1,7 @@
 import os
 import tempfile
 import streamlit as st
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pandas as pd
 
 from companies import companies
@@ -319,21 +319,16 @@ if st.button("🚀 Analyze"):
                 "Skill Distribution"
             )
 
-            fig, ax = plt.subplots()
+            chart_df = pd.DataFrame(
+    {
+        "Category": labels,
+        "Count": sizes
+    }
+)
 
-            ax.pie(
-                [
-                    matched_skills,
-                    len(missing_skills)
-                ],
-                labels=[
-                    "Matched",
-                    "Missing"
-                ],
-                autopct="%1.1f%%"
-            )
-
-            st.pyplot(fig)
+st.bar_chart(
+    chart_df.set_index("Category")
+)
 
         # ---------------- ROADMAP ----------------
 
